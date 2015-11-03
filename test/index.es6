@@ -1,15 +1,16 @@
-import Teaser from '../index.es6';
+import WinTeaser from '../index.es6';
 import React from 'react';
 import TestUtils from 'react-addons-test-utils';
 
 describe(`A teaser`, () => {
   describe(`it's a React component`, () => {
     it('is compatible with React.Component', () => {
-      Teaser.should.be.a('function').and.respondTo('render');
+      WinTeaser.should.be.a('function').and.respondTo('render');
     });
     it(`it's renders a React element`, () => {
       React.isValidElement(
-        <Teaser
+        <WinTeaser
+          type="default"
           title="Required"
           teaserId={'1'}
         />).should.equal(true);
@@ -18,7 +19,8 @@ describe(`A teaser`, () => {
   describe(`Expose a set of propTypes`, () => {
     it(`it renders a section`, () => {
       const teaser = TestUtils.renderIntoDocument(
-        <Teaser
+        <WinTeaser
+          type="default"
           section="section"
           title="Required"
           teaserId={'1'}
@@ -29,22 +31,14 @@ describe(`A teaser`, () => {
       elm.props.className.should.be.equal('teaser__section');
       elm.props.children.should.be.equal('section');
     });
-    it(`it renders a flytitle`, () => {
-      const teaser = TestUtils.renderIntoDocument(
-        <Teaser
-          flyTitle="flytitle"
-          title="Required"
-          teaserId={'1'}
-        />
-      );
-      const elm = TestUtils.findRenderedDOMComponentWithClass(
-      teaser, 'teaser__flytitle');
-      elm.props.className.should.be.equal('teaser__flytitle');
-      elm.props.children.should.be.equal('flytitle');
-    });
     it(`it renders a title`, () => {
       const teaser = TestUtils.renderIntoDocument(
-        <Teaser title="title" teaserId={'1'}/>
+        <WinTeaser
+          type="default"
+          section="section"
+          title="title"
+          teaserId={'1'}
+        />
       );
       const elm = TestUtils.findRenderedDOMComponentWithClass(
       teaser, 'teaser__title');
@@ -57,7 +51,8 @@ describe(`A teaser`, () => {
         return date.toString();
       }
       const teaser = TestUtils.renderIntoDocument(
-        <Teaser
+        <WinTeaser
+          type="default"
           dateTime={today}
           title="Required"
           teaserId={'1'}
@@ -71,8 +66,9 @@ describe(`A teaser`, () => {
     });
     it(`it renders a text`, () => {
       const teaser = TestUtils.renderIntoDocument(
-        <Teaser
-          text="Teaser text"
+        <WinTeaser
+          type="default"
+          text="WinTeaser text"
           title="Required"
           teaserId={'1'}
         />
@@ -81,7 +77,7 @@ describe(`A teaser`, () => {
       teaser, 'teaser__text');
       elm.props.className.should.be.equal('teaser__text');
       /* eslint-disable dot-notation */
-      elm.props.dangerouslySetInnerHTML['__html'].should.be.equal('Teaser text');
+      elm.props.dangerouslySetInnerHTML['__html'].should.be.equal('WinTeaser text');
     });
     it(`it renders an image`, () => {
       const img = {
@@ -89,7 +85,9 @@ describe(`A teaser`, () => {
         alt: `Example`,
       };
       const teaser = TestUtils.renderIntoDocument(
-        <Teaser image={img}
+        <WinTeaser
+          image={img}
+          type="default"
           title="Required"
           teaserId={'1'}
         />);
@@ -101,7 +99,7 @@ describe(`A teaser`, () => {
     });
     it(`it renders a link`, () => {
       const teaser = TestUtils.renderIntoDocument(
-        <Teaser
+        <WinTeaser
           link={{ href: `http://www.economist.com` }}
           title="Required"
           teaserId={'1'}

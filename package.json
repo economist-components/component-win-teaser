@@ -1,16 +1,16 @@
 {
-  "name": "@economist/component-teaser",
+  "name": "@economist/component-win-teaser",
   "version": "1.0.10",
-  "description": "Reusable teaser",
+  "description": "Reusable win-teaser",
   "author": "The Economist (http://economist.com)",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/economist-components/component-teaser.git"
+    "url": "git+https://github.com/economist-components/component-win-teaser.git"
   },
-  "homepage": "https://github.com/economist-components/component-teaser#readme",
+  "homepage": "https://github.com/economist-components/component-win-teaser#readme",
   "bugs": {
-    "url": "https://github.com/economist-components/component-teaser/issues"
+    "url": "https://github.com/economist-components/component-win-teaser/issues"
   },
   "main": "index.js",
   "files": [
@@ -106,8 +106,9 @@
     "ghpages_files": "*.html *.css *.js"
   },
   "scripts": {
+    "build": "npm-assets .",
     "ci": "./build.sh",
-    "doc": "parallelshell 'npm run doc:html' 'npm run doc:js' 'npm run doc:css'",
+    "doc": "parallelshell 'npm run build' 'npm run doc:html' 'npm run doc:js' 'npm run doc:css'",
     "doc:css": "cssnext --sourcemap example.css bundle.css",
     "doc:css:watch": "npm run doc:css -- --watch",
     "doc:html": "devpack-doc index standalone",
@@ -127,9 +128,7 @@
     "watch": "parallelshell 'npm run doc:watch' 'npm run prepublish:watch' 'npm run serve'"
   },
   "dependencies": {
-    "@economist/component-grid": "^1.1.0",
-    "@economist/component-palette": "^1.1.3",
-    "@economist/component-typography": "^1.1.3"
+    "@economist/component-font-officina": "^1.0.0"
   },
   "devDependencies": {
     "@economist/component-devpack": "^3.4.2",
@@ -150,6 +149,7 @@
     "karma-mocha": "^0.2.0",
     "karma-sauce-launcher": "^0.2.14",
     "mocha": "^2.2.5",
+    "npm-assets": "^0.1.0",
     "npm-watch": "0.0.1",
     "parallelshell": "^2.0.0",
     "pre-commit": "^1.0.10",
