@@ -2,6 +2,7 @@ import WinTeaser from '../index.es6';
 import React from 'react';
 import TestUtils from 'react-addons-test-utils';
 
+
 describe(`A teaser`, () => {
   describe(`it's a React component`, () => {
     it('is compatible with React.Component', () => {

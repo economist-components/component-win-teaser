@@ -155,9 +155,7 @@ export default class WinTeaser extends React.Component {
         ));
       }
     }
-
     groups.push(<div className="teaser__group-text">{teaserContent}</div>);
-
     let content = {};
     content = (
       <a {...this.props.link}

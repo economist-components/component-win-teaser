@@ -13,9 +13,9 @@ export default (
       section="International"
       title="An example of a hero teaser"
       dateTime={today}
-      text="THERE are many reasons why sceptics might find fault with the 17
-      Sustainable Development Goals, along with 169 associated targets, which
-      the leaders of the world..."
+      text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+      minim veniam."
       itemType=""
       itemProp=""
       teaserId={""}
@@ -29,9 +29,9 @@ export default (
       section="International"
       title="An example of a default teaser"
       dateTime={today}
-      text="THERE are many reasons why sceptics might find fault with the 17
-      Sustainable Development Goals, along with 169 associated targets, which
-      the leaders of the world..."
+      text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+      minim veniam."
       link={{
         href: `http://www.economist.com/blogs/erasmus/2015/09/un-religion-and-development-0`,
       }}
