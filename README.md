@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # component-teaser
 
 The teaser component is the basic element for the creation of collections.
@@ -14,3 +15,7 @@ You can override default value for colours introducing variables as below:
       --teaser-color-datetime: black;
       --teaser-background-color-datetime: purple;
     }
+=======
+# component-win-teaser
+teaser component for World In 2016
+>>>>>>> 507b56583ab2495aaef9fa6c5a16ed9aa6651626
