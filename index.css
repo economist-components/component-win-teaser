@@ -1,4 +1,6 @@
 @import '@economist/component-font-officina';
+@import '@economist/component-font-neutra2';
+
 :root {
   --color-white: #fff;
   --color-black: #000;
@@ -19,12 +21,16 @@
   border: none;
 }
 
-.teaser__section,
 .teaser__title,
 .teaser__flytitle,
 .teaser__text,
 .teaser__datetime {
   font-family: 'Officina';
+  font-weight: normal;
+}
+
+.teaser__section {
+  font-family: "Neutra2Display";
   font-weight: normal;
 }
 
@@ -120,8 +126,7 @@
 }
 
 @media screen and (max-width: 1024px) {
-  .teaser__title
-   {
+  .teaser__title {
     font-size: 38px;
     line-height: 40px;
     margin-top: -7px;
@@ -153,11 +158,6 @@
   .teaser__title {
     font-size: 28px;
     line-height: 30px;
-  }
-
-  .hero__teaser .teaser__group-image img {
-    min-height: 372px;
-    width: auto;
   }
 }
 
