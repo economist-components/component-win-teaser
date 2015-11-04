@@ -4,15 +4,22 @@ export default class WinTeaser extends React.Component {
   static get propTypes() {
     return {
       teaserId: React.PropTypes.string.isRequired,
-      image: React.PropTypes.object,
+      image: React.PropTypes.shape({
+        itemProp: React.PropTypes.string,
+        className: React.PropTypes.string,
+        key: React.PropTypes.string,
+      }),
       section: React.PropTypes.string,
       flyTitle: React.PropTypes.string,
       title: React.PropTypes.string.isRequired,
-      type: React.PropTypes.string,
+      variantName: React.PropTypes.string,
       dateTime: React.PropTypes.instanceOf(Date),
       dateFormat: React.PropTypes.instanceOf(Function),
       text: React.PropTypes.string,
-      link: React.PropTypes.object,
+      link: React.PropTypes.shape({
+        itemProp: React.PropTypes.string,
+        className: React.PropTypes.string,
+      }),
       itemType: React.PropTypes.string,
       itemProp: React.PropTypes.string,
     };
@@ -56,9 +63,8 @@ export default class WinTeaser extends React.Component {
   }
   render() {
     const teaserContent = [];
-    const groups = [];
     const imageContent = [];
-    if (this.props.type === 'hero') {
+    if (this.props.variantName === 'hero') {
       imageContent.push((
         <div className="teaser__group-image">
           <img {...this.props.image}
@@ -81,6 +87,7 @@ export default class WinTeaser extends React.Component {
             dangerouslySetInnerHTML={{
               '__html': this.props.text,
             }}
+            /* eslint-enable react/no-danger */
           />
           </div>
         </div>
@@ -104,7 +111,7 @@ export default class WinTeaser extends React.Component {
           >{this.props.section}</h3>
         ));
       }
-    } else if (this.props.type === 'default') {
+    } else if (this.props.variantName === 'default') {
       imageContent.push((
         <div className="teaser__group-image">
           <img {...this.props.image}
@@ -155,17 +162,16 @@ export default class WinTeaser extends React.Component {
         ));
       }
     }
-    groups.push(<div className="teaser__group-text">{teaserContent}</div>);
     let content = {};
     content = (
       <a {...this.props.link}
         className="teaser__link"
         itemProp="url"
       >{imageContent}
-      {groups}</a>);
+      <div className="teaser__group-text">{teaserContent}</div></a>);
     return (
       <article
-        className={this.props.type + '__teaser'}
+        className={`${this.props.variantName}__teaser`}
         itemScope itemType={this.props.itemType} itemProp={this.props.itemProp}
         role="article"
       >{content}</article>

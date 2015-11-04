@@ -11,7 +11,7 @@ describe(`A teaser`, () => {
     it(`it's renders a React element`, () => {
       React.isValidElement(
         <WinTeaser
-          type="default"
+          variantName="default"
           title="Required"
           teaserId={'1'}
         />).should.equal(true);
@@ -21,7 +21,7 @@ describe(`A teaser`, () => {
     it(`it renders a section`, () => {
       const teaser = TestUtils.renderIntoDocument(
         <WinTeaser
-          type="default"
+          variantName="default"
           section="section"
           title="Required"
           teaserId={'1'}
@@ -35,7 +35,7 @@ describe(`A teaser`, () => {
     it(`it renders a title`, () => {
       const teaser = TestUtils.renderIntoDocument(
         <WinTeaser
-          type="default"
+          variantName="default"
           section="section"
           title="title"
           teaserId={'1'}
@@ -53,7 +53,7 @@ describe(`A teaser`, () => {
       }
       const teaser = TestUtils.renderIntoDocument(
         <WinTeaser
-          type="default"
+          variantName="default"
           dateTime={today}
           title="Required"
           teaserId={'1'}
@@ -68,7 +68,7 @@ describe(`A teaser`, () => {
     it(`it renders a text`, () => {
       const teaser = TestUtils.renderIntoDocument(
         <WinTeaser
-          type="default"
+          variantName="default"
           text="WinTeaser text"
           title="Required"
           teaserId={'1'}
@@ -88,7 +88,7 @@ describe(`A teaser`, () => {
       const teaser = TestUtils.renderIntoDocument(
         <WinTeaser
           image={img}
-          type="default"
+          variantName="default"
           title="Required"
           teaserId={'1'}
         />);

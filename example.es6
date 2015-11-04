@@ -9,7 +9,7 @@ export default (
         src: `http://cdn.static-economist.com/sites/default/files/imagecache/full-width/20151017_BLP560.jpg`,
         title: `Just an image`,
       }}
-      type= "hero"
+      variantName= "hero"
       section="International"
       title="An example of a hero teaser"
       dateTime={today}
@@ -25,7 +25,7 @@ export default (
         src: `http://cdn.static-economist.com/sites/default/files/imagecache/full-width/20151017_BLP560.jpg`,
         title: `Just an image`,
       }}
-      type= "default"
+      variantName= "default"
       section="International"
       title="An example of a default teaser"
       dateTime={today}
