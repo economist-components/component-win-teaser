@@ -1,0 +1,6 @@
+@import './index.css';
+
+#component-preview {
+  max-width: 1190px;
+  margin: 0 auto;
+}

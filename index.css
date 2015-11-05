@@ -1,0 +1,177 @@
+@import '@economist/component-font-officina';
+@import '@economist/component-font-neutra2';
+
+:root {
+  --color-white: #fff;
+  --color-black: #000;
+  --color-light-grey: #edeef0;
+  --color-dark-grey: #3C3C3C;
+  --color-mid-grey: #c2c2c2;
+  --color-red: #E3120B;
+  --color-mid-blue: #367FB6;
+  --color-dark-blue: #253A43;
+}
+
+.hero__teaser a, .default__teaser a {
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+.teaser__group-image img {
+  border: none;
+}
+
+.teaser__title,
+.teaser__flytitle,
+.teaser__text,
+.teaser__datetime {
+  font-family: 'Officina';
+  font-weight: normal;
+}
+
+.teaser__section {
+  font-family: "Neutra2Display";
+  font-weight: normal;
+}
+
+.teaser__group-image:after {
+  content: '';
+  height: 55%;
+  width: 100%;
+  background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,1) 100%);
+  display: block;
+  bottom: 0;
+  opacity: 0.8;
+  position: absolute;
+}
+
+/*fix for ie8910 provides tint panel for ie 9 as gradient not supported*/
+@media screen\0 {
+  .teaser__image-text-container {
+    background: rgba(0,0,0,0.6);
+    background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,1) 100%);
+    padding-top: 3%;
+  }
+}
+
+.teaser__datetime {
+  color: var(--color-mid-blue);
+  display: block;
+}
+
+.teaser__group-image {
+  position: relative;
+}
+
+.teaser__group-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.teaser__group-text {
+  margin: -7px 3%;
+  padding: 0 3%;
+  border-left: 1px solid var(--color-mid-grey);
+}
+
+.hero__teaser .teaser__group-text {
+  padding-top: 3%;
+}
+
+.teaser__section {
+  font-size: 16px;
+  color: var(--color-red);
+  text-transform: uppercase;
+  margin: 0 0 6% 0;
+}
+
+.teaser__text {
+  color: var(--color-dark-grey);
+  font-size: 18px;
+}
+
+.default__teaser .teaser__text {
+  padding: 3% 0;
+}
+
+.teaser__image-text-container {
+  position: absolute;
+  bottom: 0;
+  z-index: 1;
+  border-left: 1px solid var(--color-red);
+  margin: 0 3%;
+  padding-left: 3%;
+}
+
+.hero__teaser .teaser__text {
+  color: white;
+  font-size: 21px;
+  padding-bottom: 3%;
+}
+
+.teaser__title  {
+  color: var(--color-white);
+  font-size: 43px;
+  line-height: 45px;
+  font-weight: 600;
+  margin-top: -7px;
+  margin-bottom: 1%;
+}
+
+.hero__teaser .teaser__section {
+  color: var(--color-red);
+  text-transform: uppercase;
+  margin: 0 0 4% 0;
+}
+
+@media screen and (max-width: 1024px) {
+  .teaser__title {
+    font-size: 38px;
+    line-height: 40px;
+    margin-top: -7px;
+    margin-bottom: 2%;
+  }
+}
+
+@media screen and (max-width: 790px) {
+  .hero__teaser .teaser__text,
+  .teaser__text {
+    font-size: 18px;
+  }
+
+  .hero__teaser .teaser__section, .teaser .teaser__section {
+    margin: 0 0 6% 0;
+  }
+
+  .hero__teaser .teaser__datetime {
+    padding-top: 3%;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .hero__teaser .teaser__section,
+  .default__teaser .teaser__section {
+    margin: 0 0 12% 0;
+  }
+
+  .teaser__title {
+    font-size: 28px;
+    line-height: 30px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .teaser__title {
+    font-size: 24px;
+    line-height: 26px;
+    margin-top: -4px;
+    margin-bottom: 3%;
+  }
+  .default__teaser .teaser__text {
+    padding: 6% 0;
+  }
+  .teaser__group-image:after {
+    height: 60%;
+  }
+}
