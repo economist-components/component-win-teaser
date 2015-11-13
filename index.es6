@@ -29,6 +29,7 @@ export default class WinTeaser extends React.Component {
       itemType: 'http://schema.org/Article',
       itemProp: 'article',
       dateFormat: (date) => {
+        date = new Date(date);
         // Sep 19th 2015, 9:49
         function addPostFix(day) {
           const daystr = day.toString();
