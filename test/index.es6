@@ -25,6 +25,10 @@ describe(`A teaser`, () => {
           section="section"
           title="Required"
           teaserId={'1'}
+          image={{
+            sources: [],
+            alt: '',
+          }}
         />
       );
       const elm = TestUtils.findRenderedDOMComponentWithClass(
@@ -39,6 +43,10 @@ describe(`A teaser`, () => {
           section="section"
           title="title"
           teaserId={'1'}
+          image={{
+            sources: [],
+            alt: '',
+          }}
         />
       );
       const elm = TestUtils.findRenderedDOMComponentWithClass(
@@ -58,6 +66,10 @@ describe(`A teaser`, () => {
           title="Required"
           teaserId={'1'}
           dateFormat={dateFormat}
+          image={{
+            sources: [],
+            alt: '',
+          }}
         />
       );
       const elm = TestUtils.findRenderedDOMComponentWithClass(
@@ -66,37 +78,47 @@ describe(`A teaser`, () => {
       elm.props.children.should.be.equal(today.toString());
     });
     it(`it renders a text`, () => {
-      const teaser = TestUtils.renderIntoDocument(
+      const renderer = TestUtils.createRenderer();
+      renderer.render(
         <WinTeaser
           variantName="default"
           text="WinTeaser text"
           title="Required"
           teaserId={'1'}
+          image={{
+            sources: [],
+            alt: '',
+          }}
         />
       );
-      const elm = TestUtils.findRenderedDOMComponentWithClass(
-      teaser, 'teaser__text');
-      elm.props.className.should.be.equal('teaser__text');
-      /* eslint-disable dot-notation */
-      elm.props.dangerouslySetInnerHTML['__html'].should.be.equal('WinTeaser text');
+      const teaser = renderer.getRenderOutput();
+      const textProps = teaser.props.children.props.children[1].props.children[0].props;
+      textProps.className.should.equal('teaser__text');
+      /* eslint-disable no-underscore-dangle */
+      textProps.dangerouslySetInnerHTML.__html.should.equal('WinTeaser text');
+      /* eslint-enable no-underscore-dangle */
     });
     it(`it renders an image`, () => {
-      const img = {
-        src: `//cdn.static-economist.com/sites/all/themes/econfinal/images/svg/logo.svg`,
-        alt: `Example`,
-      };
-      const teaser = TestUtils.renderIntoDocument(
+      const renderer = TestUtils.createRenderer();
+      renderer.render(
         <WinTeaser
-          image={img}
           variantName="default"
           title="Required"
           teaserId={'1'}
-        />);
-      const elm = TestUtils.findRenderedDOMComponentWithClass(
-      teaser, 'teaser__img');
-      elm.props.className.should.be.equal('teaser__img');
-      elm.props.src.should.be.equal('//cdn.static-economist.com/sites/all/themes/econfinal/images/svg/logo.svg');
-      elm.props.alt.should.be.equal('Example');
+          image={{
+            sources: [
+              { url: 'https://placehold.it/896x504', width: 896, height: 504, dppx: 1 },
+            ],
+            alt: 'this is the image description',
+          }}
+        />
+      );
+
+      const teaser = renderer.getRenderOutput();
+      const imageProps = teaser.props.children.props.children[0][0].props.children[0].props;
+      imageProps.className.should.be.equal('teaser__img');
+      imageProps.sources[0].url.should.be.equal('https://placehold.it/896x504');
+      imageProps.alt.should.be.equal('this is the image description');
     });
     it(`it renders a link`, () => {
       const teaser = TestUtils.renderIntoDocument(
@@ -104,6 +126,10 @@ describe(`A teaser`, () => {
           link={{ href: `http://www.economist.com` }}
           title="Required"
           teaserId={'1'}
+          image={{
+            sources: [],
+            alt: '',
+          }}
         />);
       const elm = TestUtils.findRenderedDOMComponentWithClass(
       teaser, 'teaser__link');
