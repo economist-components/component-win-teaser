@@ -129,7 +129,8 @@
   },
   "dependencies": {
     "@economist/component-font-officina": "^1.0.0",
-    "@economist/component-font-neutra2": "^1.0.0"
+    "@economist/component-font-neutra2": "^1.0.0",
+    "@economist/component-picture": "^1.0.0"
   },
   "devDependencies": {
     "@economist/component-devpack": "^3.4.2",

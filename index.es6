@@ -1,13 +1,15 @@
 import React from 'react';
+import Picture from '@economist/component-picture';
 
 export default class WinTeaser extends React.Component {
   static get propTypes() {
     return {
       teaserId: React.PropTypes.string.isRequired,
       image: React.PropTypes.shape({
+        sources: React.PropTypes.array,
         itemProp: React.PropTypes.string,
         className: React.PropTypes.string,
-        key: React.PropTypes.string,
+        alt: React.PropTypes.string,
       }),
       section: React.PropTypes.string,
       flyTitle: React.PropTypes.string,
@@ -67,11 +69,10 @@ export default class WinTeaser extends React.Component {
     const imageContent = [];
     if (this.props.variantName === 'hero') {
       imageContent.push((
-        <div className="teaser__group-image">
-          <img {...this.props.image}
+        <div className="teaser__group-image" key={`teaser__img_${this.props.teaserId}`}>
+          <Picture {...this.props.image}
             itemProp="image"
             className="teaser__img"
-            key={`teaser__img_${this.props.teaserId}`}
           />
           <div className="teaser__image-text-container">
           <h1
@@ -114,11 +115,10 @@ export default class WinTeaser extends React.Component {
       }
     } else if (this.props.variantName === 'default') {
       imageContent.push((
-        <div className="teaser__group-image">
-          <img {...this.props.image}
+        <div className="teaser__group-image" key={`teaser__img_${this.props.teaserId}`}>
+          <Picture {...this.props.image}
             itemProp="image"
             className="teaser__img"
-            key={`teaser__img_${this.props.teaserId}`}
           />
           <div className="teaser__image-text-container">
           <h1
