@@ -15,7 +15,10 @@ export default class WinTeaser extends React.Component {
       flyTitle: React.PropTypes.string,
       title: React.PropTypes.string.isRequired,
       variantName: React.PropTypes.string,
-      dateTime: React.PropTypes.instanceOf(Date),
+      dateTime: React.PropTypes.oneOf([
+        React.PropTypes.string,
+        React.PropTypes.instanceOf(Date),
+      ]),
       dateFormat: React.PropTypes.instanceOf(Function),
       text: React.PropTypes.string,
       link: React.PropTypes.shape({
@@ -30,38 +33,7 @@ export default class WinTeaser extends React.Component {
     return {
       itemType: 'http://schema.org/Article',
       itemProp: 'article',
-      dateFormat: (date) => {
-        date = new Date(date);
-        // Sep 19th 2015, 9:49
-        function addPostFix(day) {
-          const daystr = day.toString();
-          const lastChar = daystr.charAt(daystr.length - 1);
-          let postFix = '';
-          switch (lastChar) {
-            case '1':
-              postFix = 'st';
-              break;
-            case '2':
-              postFix = 'nd';
-              break;
-            case '3':
-              postFix = 'rd';
-              break;
-            default:
-              postFix = 'th';
-              break;
-          }
-          return `${day}${postFix}`;
-        }
-        const shortMonthList = [ 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-        'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec' ];
-        let minutes = date.getMinutes() < 10 ? '0' : '';
-        minutes += date.getMinutes();
-        return `${shortMonthList[date.getMonth()]}
-                ${addPostFix(date.getDay())}
-                ${date.getFullYear()},
-                ${date.getHours()}:${minutes}`;
-      },
+      dateFormat: (date) => (new Date(date).toDateString()),
     };
   }
   render() {
