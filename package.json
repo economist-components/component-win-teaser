@@ -1,6 +1,6 @@
 {
   "name": "@economist/component-win-teaser",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "Reusable win-teaser",
   "author": "The Economist (http://economist.com)",
   "license": "MIT",
@@ -130,7 +130,7 @@
   "dependencies": {
     "@economist/component-font-officina": "^1.0.0",
     "@economist/component-font-neutra2": "^1.0.0",
-    "@economist/component-picture": "^1.0.0"
+    "@economist/component-picture": "^1.1.0"
   },
   "devDependencies": {
     "@economist/component-devpack": "^3.4.2",
